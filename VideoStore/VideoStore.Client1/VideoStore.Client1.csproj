@@ -106,6 +106,7 @@
     <None Include="Service References\svc\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\svc\MEX2.xsd" />
     <None Include="Service References\svc\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

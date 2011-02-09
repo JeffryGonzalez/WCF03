@@ -60,5 +60,11 @@ namespace VideoStore.Client1
 			MessageBox.Show(answer.ToString());
 
 		}
+
+		private void btnRating_Click(object sender, EventArgs e)
+		{
+			var service = new svc.StatisticsClient();
+			service.RateService(StarRating.Four);
+		}
 	}
 }

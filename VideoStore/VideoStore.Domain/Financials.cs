@@ -15,5 +15,11 @@ namespace VideoStore.Domain
 			Thread.Sleep(year * 10);
 			return new Random(year).Next(0, 1000);
 		}
+
+
+		public void RateService(StarRating rating)
+		{
+			// do something with the rating here.
+		}
 	}
 }

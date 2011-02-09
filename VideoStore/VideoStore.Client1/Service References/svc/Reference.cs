@@ -9,7 +9,28 @@
 //------------------------------------------------------------------------------
 
 namespace VideoStore.Client1.svc {
+    using System.Runtime.Serialization;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "3.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StarRating", Namespace="http://schemas.datacontract.org/2004/07/VideoStore.Contracts")]
+    public enum StarRating : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        One = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Two = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Three = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Four = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Five = 4,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="svc.IStatistics")]
@@ -22,6 +43,14 @@ namespace VideoStore.Client1.svc {
         System.IAsyncResult BeginGetAverageRentalsForYear(int year, System.AsyncCallback callback, object asyncState);
         
         decimal EndGetAverageRentalsForYear(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IStatistics/RateService")]
+        void RateService(VideoStore.Client1.svc.StarRating rating);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IStatistics/RateService")]
+        System.IAsyncResult BeginRateService(VideoStore.Client1.svc.StarRating rating, System.AsyncCallback callback, object asyncState);
+        
+        void EndRateService(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "3.0.0.0")]
@@ -57,6 +86,12 @@ namespace VideoStore.Client1.svc {
         
         private System.Threading.SendOrPostCallback onGetAverageRentalsForYearCompletedDelegate;
         
+        private BeginOperationDelegate onBeginRateServiceDelegate;
+        
+        private EndOperationDelegate onEndRateServiceDelegate;
+        
+        private System.Threading.SendOrPostCallback onRateServiceCompletedDelegate;
+        
         public StatisticsClient() {
         }
         
@@ -77,6 +112,8 @@ namespace VideoStore.Client1.svc {
         }
         
         public event System.EventHandler<GetAverageRentalsForYearCompletedEventArgs> GetAverageRentalsForYearCompleted;
+        
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RateServiceCompleted;
         
         public decimal GetAverageRentalsForYear(int year) {
             return base.Channel.GetAverageRentalsForYear(year);
@@ -126,6 +163,55 @@ namespace VideoStore.Client1.svc {
             }
             base.InvokeAsync(this.onBeginGetAverageRentalsForYearDelegate, new object[] {
                         year}, this.onEndGetAverageRentalsForYearDelegate, this.onGetAverageRentalsForYearCompletedDelegate, userState);
+        }
+        
+        public void RateService(VideoStore.Client1.svc.StarRating rating) {
+            base.Channel.RateService(rating);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginRateService(VideoStore.Client1.svc.StarRating rating, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginRateService(rating, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndRateService(System.IAsyncResult result) {
+            base.Channel.EndRateService(result);
+        }
+        
+        private System.IAsyncResult OnBeginRateService(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            VideoStore.Client1.svc.StarRating rating = ((VideoStore.Client1.svc.StarRating)(inValues[0]));
+            return this.BeginRateService(rating, callback, asyncState);
+        }
+        
+        private object[] OnEndRateService(System.IAsyncResult result) {
+            this.EndRateService(result);
+            return null;
+        }
+        
+        private void OnRateServiceCompleted(object state) {
+            if ((this.RateServiceCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.RateServiceCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void RateServiceAsync(VideoStore.Client1.svc.StarRating rating) {
+            this.RateServiceAsync(rating, null);
+        }
+        
+        public void RateServiceAsync(VideoStore.Client1.svc.StarRating rating, object userState) {
+            if ((this.onBeginRateServiceDelegate == null)) {
+                this.onBeginRateServiceDelegate = new BeginOperationDelegate(this.OnBeginRateService);
+            }
+            if ((this.onEndRateServiceDelegate == null)) {
+                this.onEndRateServiceDelegate = new EndOperationDelegate(this.OnEndRateService);
+            }
+            if ((this.onRateServiceCompletedDelegate == null)) {
+                this.onRateServiceCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnRateServiceCompleted);
+            }
+            base.InvokeAsync(this.onBeginRateServiceDelegate, new object[] {
+                        rating}, this.onEndRateServiceDelegate, this.onRateServiceCompletedDelegate, userState);
         }
     }
 }

@@ -31,6 +31,7 @@
 			this.btnSynch = new System.Windows.Forms.Button();
 			this.btnAsynch = new System.Windows.Forms.Button();
 			this.btnAsynch2 = new System.Windows.Forms.Button();
+			this.btnRating = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnSynch
@@ -63,11 +64,22 @@
 			this.btnAsynch2.UseVisualStyleBackColor = true;
 			this.btnAsynch2.Click += new System.EventHandler(this.btnAsynch2_Click);
 			// 
+			// btnRating
+			// 
+			this.btnRating.Location = new System.Drawing.Point(272, 43);
+			this.btnRating.Name = "btnRating";
+			this.btnRating.Size = new System.Drawing.Size(166, 35);
+			this.btnRating.TabIndex = 3;
+			this.btnRating.Text = "Send Rating";
+			this.btnRating.UseVisualStyleBackColor = true;
+			this.btnRating.Click += new System.EventHandler(this.btnRating_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 262);
+			this.ClientSize = new System.Drawing.Size(513, 262);
+			this.Controls.Add(this.btnRating);
 			this.Controls.Add(this.btnAsynch2);
 			this.Controls.Add(this.btnAsynch);
 			this.Controls.Add(this.btnSynch);
@@ -82,6 +94,7 @@
 		private System.Windows.Forms.Button btnSynch;
 		private System.Windows.Forms.Button btnAsynch;
 		private System.Windows.Forms.Button btnAsynch2;
+		private System.Windows.Forms.Button btnRating;
 	}
 }
 
