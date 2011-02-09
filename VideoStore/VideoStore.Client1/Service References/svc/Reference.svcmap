@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="081edf8f-6f9b-46a5-8554-1784582a692e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/VideoStore/MEX" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Financials.wsdl" MetadataType="Wsdl" ID="db39972d-e4a1-444d-92ff-270fbf0319d7" SourceId="1" SourceUrl="http://localhost:8080/VideoStore/MEX" />
+    <MetadataFile FileName="MEX.xsd" MetadataType="Schema" ID="dfd718f9-92cc-4adf-a5fa-a20c5726e2ad" SourceId="1" SourceUrl="http://localhost:8080/VideoStore/MEX?xsd=xsd1" />
+    <MetadataFile FileName="MEX1.xsd" MetadataType="Schema" ID="15867e35-0686-4c4f-ab85-e07d1220e9ea" SourceId="1" SourceUrl="http://localhost:8080/VideoStore/MEX?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

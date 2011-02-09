@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{429B18C6-7C64-43BA-BF9E-2D3978A63E74}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{684E5BF6-E69B-48CB-9637-D3D28A14F656}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VideoStore.Host</RootNamespace>
-    <AssemblyName>VideoStore.Host</AssemblyName>
+    <RootNamespace>VideoStore.Contracts</RootNamespace>
+    <AssemblyName>VideoStore.Contracts</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,18 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="IStatistics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VideoStore\VideoStore.Contracts\VideoStore.Contracts.csproj">
-      <Project>{684E5BF6-E69B-48CB-9637-D3D28A14F656}</Project>
-      <Name>VideoStore.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VideoStore\VideoStore.Domain\VideoStore.Domain.csproj">
-      <Project>{4845D90A-2DE1-4AC5-8441-BCEEF52E31C7}</Project>
-      <Name>VideoStore.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
