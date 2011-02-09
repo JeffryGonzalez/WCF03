@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using VideoStore.Contracts;
 using System.Threading;
+using System.ServiceModel;
 
 namespace VideoStore.Domain
 {
@@ -11,23 +12,31 @@ namespace VideoStore.Domain
 	{
 		public void RegisterForNotificationOnReturn(int videoId)
 		{
-			throw new NotImplementedException();
+			// a little hokey here.
+			var returnWatcher = new ReturnWatcher(OperationContext.Current.GetCallbackChannel<IRentalReturnsCallback>(),videoId);
+
+			var workerThread = new Thread(new ThreadStart(returnWatcher.WatchThisItem));
+			workerThread.IsBackground = true;
+			workerThread.Start();
+
 		}
 	}
 
 	public class ReturnWatcher
 	{
 		public IRentalReturnsCallback Callback = null;
-
-		public ReturnWatcher(IRentalReturnsCallback callback)
+		private int videoId;
+		public ReturnWatcher(IRentalReturnsCallback callback, int videoId)
 		{
 			this.Callback = callback;
+			this.videoId = videoId;
 		}
 
-		public void WatchThisItem(int videoId)
+		public void WatchThisItem()
 		{
 			var r = new Random();
-			for(int x =0; x<20; x++)
+			Thread.Sleep(5000); // Wait 5 seconds then start.
+			for(int x =0; x<5; x++)
 			{
 				Thread.Sleep(r.Next(1,3) * 1000);
 				Callback.VideoReturned(videoId,DateTime.Now);

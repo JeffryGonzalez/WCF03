@@ -8,10 +8,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using VideoStore.Client1.svc;
+using System.ServiceModel;
 
 namespace VideoStore.Client1
 {
-	public partial class Form1 : Form
+	public partial class Form1 : Form, rentalsService.IRentalReturnsCallback
 	{
 		private static StatisticsClient asyncService;
 
@@ -65,6 +66,19 @@ namespace VideoStore.Client1
 		{
 			var service = new svc.StatisticsClient();
 			service.RateService(StarRating.Four);
+		}
+
+		private void btnRegisterForDuplex_Click(object sender, EventArgs e)
+		{
+			var context = new InstanceContext(this);
+			var service = new rentalsService.RentalReturnsClient(context);
+			service.RegisterForNotificationOnReturn(99);
+		}
+
+		public void VideoReturned(int videoId, DateTime when)
+		{
+			// need a method invoker here - but ok for a demo.
+			lstUpdates.Items.Add(string.Format("Video {0} Returned at {1:T}", videoId, when));
 		}
 	}
 }

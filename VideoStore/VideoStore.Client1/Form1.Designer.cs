@@ -32,6 +32,8 @@
 			this.btnAsynch = new System.Windows.Forms.Button();
 			this.btnAsynch2 = new System.Windows.Forms.Button();
 			this.btnRating = new System.Windows.Forms.Button();
+			this.btnRegisterForDuplex = new System.Windows.Forms.Button();
+			this.lstUpdates = new System.Windows.Forms.ListBox();
 			this.SuspendLayout();
 			// 
 			// btnSynch
@@ -74,11 +76,31 @@
 			this.btnRating.UseVisualStyleBackColor = true;
 			this.btnRating.Click += new System.EventHandler(this.btnRating_Click);
 			// 
+			// btnRegisterForDuplex
+			// 
+			this.btnRegisterForDuplex.Location = new System.Drawing.Point(272, 114);
+			this.btnRegisterForDuplex.Name = "btnRegisterForDuplex";
+			this.btnRegisterForDuplex.Size = new System.Drawing.Size(166, 35);
+			this.btnRegisterForDuplex.TabIndex = 4;
+			this.btnRegisterForDuplex.Text = "Register For Duplex ";
+			this.btnRegisterForDuplex.UseVisualStyleBackColor = true;
+			this.btnRegisterForDuplex.Click += new System.EventHandler(this.btnRegisterForDuplex_Click);
+			// 
+			// lstUpdates
+			// 
+			this.lstUpdates.FormattingEnabled = true;
+			this.lstUpdates.Location = new System.Drawing.Point(480, 13);
+			this.lstUpdates.Name = "lstUpdates";
+			this.lstUpdates.Size = new System.Drawing.Size(295, 225);
+			this.lstUpdates.TabIndex = 5;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(513, 262);
+			this.ClientSize = new System.Drawing.Size(787, 262);
+			this.Controls.Add(this.lstUpdates);
+			this.Controls.Add(this.btnRegisterForDuplex);
 			this.Controls.Add(this.btnRating);
 			this.Controls.Add(this.btnAsynch2);
 			this.Controls.Add(this.btnAsynch);
@@ -95,6 +117,8 @@
 		private System.Windows.Forms.Button btnAsynch;
 		private System.Windows.Forms.Button btnAsynch2;
 		private System.Windows.Forms.Button btnRating;
+		private System.Windows.Forms.Button btnRegisterForDuplex;
+		private System.Windows.Forms.ListBox lstUpdates;
 	}
 }
 
